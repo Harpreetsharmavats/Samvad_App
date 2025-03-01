@@ -16,7 +16,6 @@ import com.example.samvadapp.ui.theme.SamvadAppTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
             SamvadAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->

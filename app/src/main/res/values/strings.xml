@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Samvad App</string>
+    <string name="api_key">2qr9cgbezkhx</string>
+    <string name="jwt_token">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiaGFycHJlZXQ1In0.hn4DE3QyaGIyLQ1Bpct-NmcedwkcthmpPqJ2-HtsVSY</string>
+    <!--harpreet5-->
 </resources>
