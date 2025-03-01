@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.example.samvadapp"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.samvadapp"
@@ -72,7 +72,8 @@ dependencies {
     implementation (libs.stream.chat.android.compose)
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
-    implementation("androidx.compose.material:material:1.7.8")
+    implementation(libs.androidx.material)
+    implementation (libs.androidx.constraintlayout.compose)
 }
 
 // Allow references to generated code
