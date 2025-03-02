@@ -74,6 +74,18 @@ dependencies {
     kapt(libs.hilt.android.compiler)
     implementation(libs.androidx.material)
     implementation (libs.androidx.constraintlayout.compose)
+    implementation(libs.stream.chat.android.client.v632)
+
+    // Stream Chat Offline Support (For Caching and Offline Mode)
+    implementation(libs.stream.chat.android.offline)
+    implementation (libs.stream.chat.android.ui.components)
+
+    // Client only
+    implementation (libs.getstream.stream.chat.android.client)
+
+    implementation("io.getstream:stream-chat-android-client:6.3.2")
+    implementation("io.getstream:stream-chat-android-offline:6.3.2")
+    implementation("io.getstream:stream-chat-android-ui-components:6.3.2")
 }
 
 // Allow references to generated code

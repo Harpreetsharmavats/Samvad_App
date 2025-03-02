@@ -1,10 +1,8 @@
-package com.example.samvadapp
-
+package com.example.samvadapp.activity
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
-
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -14,9 +12,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.OutlinedTextField
-
 import androidx.compose.material3.Text
-
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -27,9 +23,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
-
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
+import com.example.samvadapp.R
 import com.example.samvadapp.ui.theme.SamvadAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -41,13 +37,14 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-@Preview(showBackground = true)
+
+    @Preview(showBackground = true)
     @Composable
     fun LoginScreen() {
         var userName by remember {
             mutableStateOf(TextFieldValue(""))
         }
-        var showProgress : Boolean by remember {
+        var showProgress: Boolean by remember {
             mutableStateOf(false)
         }
         ConstraintLayout(
@@ -64,7 +61,7 @@ class MainActivity : ComponentActivity() {
                     .constrainAs(logo) {
                         start.linkTo(parent.start)
                         end.linkTo(parent.end)
-                        top.linkTo(parent.top, margin = 100.dp)
+                        top.linkTo(parent.top, margin = 175.dp)
                     })
             OutlinedTextField(
                 value = userName,
@@ -106,12 +103,12 @@ class MainActivity : ComponentActivity() {
 
                 Text(text = "Login as Guest")
             }
-            if (showProgress){
+            if (showProgress) {
                 CircularProgressIndicator(
-                    modifier = Modifier.constrainAs(progressBar){
+                    modifier = Modifier.constrainAs(progressBar) {
                         start.linkTo(parent.start)
                         end.linkTo(parent.end)
-                        top.linkTo(btnLoginAsGuest.bottom , margin = 16.dp)
+                        top.linkTo(btnLoginAsGuest.bottom, margin = 16.dp)
                     }
                 )
             }
