@@ -54,6 +54,7 @@ android {
 
 dependencies {
 
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -62,6 +63,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.core)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -69,25 +71,23 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-    implementation (libs.stream.chat.android.compose)
+
+    // Stream Chat Dependencies
+    implementation(libs.stream.chat.android.compose)
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
     implementation(libs.androidx.material)
-    implementation (libs.androidx.constraintlayout.compose)
-    implementation(libs.stream.chat.android.client.v632)
+    implementation(libs.androidx.constraintlayout.compose)
 
-    // Stream Chat Offline Support (For Caching and Offline Mode)
-    implementation(libs.stream.chat.android.offline)
-    implementation (libs.stream.chat.android.ui.components)
+    // Stream Chat Core Dependencies
+    implementation("io.getstream:stream-chat-android-client:6.2.0")
+    implementation("io.getstream:stream-chat-android-state:6.2.0")
+    implementation("io.getstream:stream-chat-android-ui-components:6.2.0")
 
-    // Client only
-    implementation (libs.getstream.stream.chat.android.client)
+    // Stream Chat Markdown Support
+    implementation("io.getstream:stream-chat-android-markdown-transformer:6.2.0")
 
-    implementation("io.getstream:stream-chat-android-client:6.3.2")
-    implementation("io.getstream:stream-chat-android-offline:6.3.2")
-    implementation("io.getstream:stream-chat-android-ui-components:6.3.2")
 }
-
 // Allow references to generated code
 kapt {
     correctErrorTypes = true
