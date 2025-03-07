@@ -1,7 +1,9 @@
 package com.example.samvadapp.activity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -25,18 +27,29 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.lifecycle.LifecycleCoroutineScope
+import androidx.lifecycle.lifecycleScope
 import com.example.samvadapp.R
 import com.example.samvadapp.ui.theme.SamvadAppTheme
+import com.example.samvadapp.viewmodel.LoginViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    private val viewModel : LoginViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        subscribeToEvents()
         setContent {
             SamvadAppTheme {
                 LoginScreen()
             }
         }
     }
+
+
 
     @Preview(showBackground = true)
     @Composable
@@ -81,7 +94,7 @@ class MainActivity : ComponentActivity() {
                     },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
             )
-            Button(onClick = { /*TODO*/ },
+            Button(onClick = { viewModel.loginUser(userName.text, getString(R.string.jwt_token)) },
                 modifier = Modifier
                     .fillMaxWidth()
                     .constrainAs(btnLoginAsUser) {
@@ -92,7 +105,7 @@ class MainActivity : ComponentActivity() {
 
                 Text(text = "Login as User")
             }
-            Button(onClick = { /*TODO*/ },
+            Button(onClick = { viewModel.loginUser(userName.text)},
                 modifier = Modifier
                     .fillMaxWidth()
                     .constrainAs(btnLoginAsGuest) {
@@ -115,6 +128,30 @@ class MainActivity : ComponentActivity() {
 
         }
 
+    }
+    private fun subscribeToEvents() {
+
+        lifecycleScope.launch {
+            viewModel.logInEvent.collect{ event ->
+                when(event){
+                    is LoginViewModel.LogInEvent.ErrorInputTooShort -> {
+                        showToast("Invalid! Enter more than 4 characters")
+                    }
+
+                    is LoginViewModel.LogInEvent.ErrorLogin -> {
+                        val errorMessage = event.error
+                        showToast("Error : $errorMessage")
+                    }
+                    LoginViewModel.LogInEvent.SuccessLogin -> {
+                        showToast("Login Successful!")
+                    }
+                }
+            }
+        }
+    }
+
+    private fun showToast(msg: String) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
 
 }
