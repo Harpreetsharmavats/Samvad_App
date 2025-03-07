@@ -22,10 +22,9 @@ object AppModule {
     @Provides
     fun provideChatClient(
         @ApplicationContext context: Context,
-        statePluginFactory: StreamStatePluginFactory
+
     ): ChatClient {
         return ChatClient.Builder(context.getString(R.string.api_key), context)
-            .withPlugins(statePluginFactory)  // Attach State Plugin
             .logLevel(ChatLogLevel.ALL)       // Debugging logs
             .build()
     }
