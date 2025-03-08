@@ -20,10 +20,14 @@ streamChatAndroidOffline = "6.3.2"
 streamChatAndroidUiComponents = "6.4.0"
 core = "1.48.0"
 stream = "6.4.4"
+streamChatCompose = "4.30.0"
+streamChatComposeVersion = "4.29.1"
 
 
 [libraries]
 stream-chat-client = { module = "io.getstream:stream-chat-android-client", version.ref = "stream" }
+stream-chat-compose = { module = "io.getstream:stream-chat-compose", version.ref = "streamChatCompose" }
+stream-chat-compose-v4291 = { module = "io.getstream:stream-chat-compose", version.ref = "streamChatComposeVersion" }
 stream-chat-state = { module = "io.getstream:stream-chat-android-state", version.ref = "stream" }
 androidx-constraintlayout-compose = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "constraintlayoutCompose" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }

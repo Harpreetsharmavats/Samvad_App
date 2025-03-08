@@ -83,6 +83,9 @@ dependencies {
     implementation("io.getstream:stream-chat-android-client:6.2.0")
     implementation("io.getstream:stream-chat-android-state:6.2.0")
     implementation("io.getstream:stream-chat-android-ui-components:6.2.0")
+    implementation(libs.stream.chat.compose) // Check for latest version
+    implementation(libs.stream.chat.compose.v4291) // Latest stable version as of now
+
 
     // Stream Chat Markdown Support
     implementation("io.getstream:stream-chat-android-markdown-transformer:6.2.0")
