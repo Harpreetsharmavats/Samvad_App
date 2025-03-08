@@ -27,13 +27,12 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
-import androidx.lifecycle.LifecycleCoroutineScope
+import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import com.example.samvadapp.R
 import com.example.samvadapp.ui.theme.SamvadAppTheme
 import com.example.samvadapp.viewmodel.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -60,6 +59,17 @@ class MainActivity : ComponentActivity() {
         var showProgress: Boolean by remember {
             mutableStateOf(false)
         }
+        viewModel.loadingEvent.observe(this, Observer { loadingState->
+            showProgress = when(loadingState){
+                is LoginViewModel.LoadingEvent.Loading -> {
+                    true
+                }
+
+                LoginViewModel.LoadingEvent.NotLoading -> {
+                    false
+                }
+            }
+        })
         ConstraintLayout(
             modifier = Modifier
                 .fillMaxSize()
