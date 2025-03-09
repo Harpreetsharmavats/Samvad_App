@@ -1,4 +1,5 @@
 package com.example.samvadapp.activity
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -141,7 +142,7 @@ class MainActivity : ComponentActivity() {
     }
     private fun subscribeToEvents() {
 
-        lifecycleScope.launch {
+        lifecycleScope.launchWhenStarted {
             viewModel.logInEvent.collect{ event ->
                 when(event){
                     is LoginViewModel.LogInEvent.ErrorInputTooShort -> {
@@ -154,6 +155,8 @@ class MainActivity : ComponentActivity() {
                     }
                     LoginViewModel.LogInEvent.SuccessLogin -> {
                         showToast("Login Successful!")
+                        startActivity(Intent(this@MainActivity,ChannelListActivity::class.java))
+                        finish()
                     }
                 }
             }
