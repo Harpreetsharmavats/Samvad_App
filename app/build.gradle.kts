@@ -12,7 +12,7 @@ android {
     defaultConfig {
         applicationId = "com.example.samvadapp"
         minSdk = 26
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -80,17 +80,18 @@ dependencies {
     implementation(libs.androidx.material)
     implementation(libs.androidx.constraintlayout.compose)
 
-    // Stream Chat Core Dependencies
-    implementation("io.getstream:stream-chat-android-client:6.2.0")
-    implementation("io.getstream:stream-chat-android-state:6.2.0")
-    implementation("io.getstream:stream-chat-android-ui-components:6.2.0")
-    implementation(libs.stream.chat.compose) // Check for latest version
-    implementation(libs.stream.chat.compose.v4291) // Latest stable version as of now
+    val streamChat = "6.3.2"
+    implementation(libs.stream.chat.android.offline)
+    implementation(libs.getstream.stream.chat.android.compose.v632)
 
+    implementation(libs.androidx.material.icons.extended)
 
-    // Stream Chat Markdown Support
-    implementation("io.getstream:stream-chat-android-markdown-transformer:6.2.0")
-
+    val stream_version = "6.3.2"
+    implementation(libs.stream.chat.android.ui.components)
+    // Client + offline
+    implementation(libs.stream.chat.android.offline)
+    // Client only
+    implementation(libs.getstream.stream.chat.android.client)
 }
 // Allow references to generated code
 kapt {

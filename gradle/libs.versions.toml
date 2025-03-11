@@ -1,6 +1,10 @@
 [versions]
 agp = "8.5.0"
 constraintlayoutCompose = "1.1.1"
+getstreamStreamChatAndroidClient = "6.2.0"
+getstreamStreamChatAndroidClientVersion = "6.3.2"
+getstreamStreamChatAndroidUiComponents = "6.3.2"
+getstreamStreamChatCompose = "4.29.0"
 hiltAndroid = "2.51.1"
 kotlin = "1.9.0"
 coreKtx = "1.15.0"
@@ -11,23 +15,36 @@ lifecycleRuntimeKtx = "2.8.7"
 activityCompose = "1.10.0"
 composeBom = "2024.04.01"
 material = "1.7.8"
+streamChat = "6.3.2"
 streamChatAndroidClient = "6.4.4"
 streamChatAndroidClientVersion = "6.4.4"
 streamChatAndroidCompose = "6.4.4"
 streamChatAndroidComposeVersion = "6.4.4"
 streamChatAndroidMarkdownTransformer = "6.4.0"
+streamChatAndroidMarkdownTransformerVersion = "6.2.0"
 streamChatAndroidOffline = "6.3.2"
+streamChatAndroidState = "6.2.0"
 streamChatAndroidUiComponents = "6.4.0"
 core = "1.48.0"
 stream = "6.4.4"
+streamChatAndroidUiComponentsVersion = "6.2.0"
 streamChatCompose = "4.30.0"
 streamChatComposeVersion = "4.29.1"
 playServicesDrive = "17.0.0"
 
 
 [libraries]
+androidx-material-icons-extended = { module = "androidx.compose.material:material-icons-extended", version.ref = "material" }
+getstream-stream-chat-android-client-v632 = { module = "io.getstream:stream-chat-android-client", version.ref = "getstreamStreamChatAndroidClientVersion" }
+getstream-stream-chat-android-compose-v632 = { module = "io.getstream:stream-chat-android-compose", version.ref = "streamChat" }
+stream-chat-android-client-v620 = { module = "io.getstream:stream-chat-android-client", version.ref = "getstreamStreamChatAndroidClient" }
+stream-chat-android-markdown-transformer-v620 = { module = "io.getstream:stream-chat-android-markdown-transformer", version.ref = "streamChatAndroidMarkdownTransformerVersion" }
+stream-chat-android-state-v620 = { module = "io.getstream:stream-chat-android-state", version.ref = "streamChatAndroidState" }
+stream-chat-android-ui-components-v620 = { module = "io.getstream:stream-chat-android-ui-components", version.ref = "streamChatAndroidUiComponentsVersion" }
+stream-chat-android-ui-components-v632 = { module = "io.getstream:stream-chat-android-ui-components", version.ref = "getstreamStreamChatAndroidUiComponents" }
 stream-chat-client = { module = "io.getstream:stream-chat-android-client", version.ref = "stream" }
 stream-chat-compose = { module = "io.getstream:stream-chat-compose", version.ref = "streamChatCompose" }
+stream-chat-compose-v4290 = { module = "io.getstream:stream-chat-compose", version.ref = "getstreamStreamChatCompose" }
 stream-chat-compose-v4291 = { module = "io.getstream:stream-chat-compose", version.ref = "streamChatComposeVersion" }
 stream-chat-state = { module = "io.getstream:stream-chat-android-state", version.ref = "stream" }
 androidx-constraintlayout-compose = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "constraintlayoutCompose" }
