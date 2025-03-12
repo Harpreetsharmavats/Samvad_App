@@ -79,6 +79,8 @@ dependencies {
     kapt(libs.hilt.android.compiler)
     implementation(libs.androidx.material)
     implementation(libs.androidx.constraintlayout.compose)
+    implementation ("io.getstream:stream-chat-android-compose:4.36.0")
+
 
     val streamChat = "6.3.2"
     implementation(libs.stream.chat.android.offline)
