@@ -22,6 +22,7 @@ class LoginViewModel @Inject constructor(
     private val _loginEvent = MutableSharedFlow<LogInEvent>()
     val logInEvent = _loginEvent.asSharedFlow()
 
+    
     private val _loadingEvent = MutableLiveData<LoadingEvent>()
      val loadingEvent : LiveData<LoadingEvent>
          get() = _loadingEvent
@@ -29,6 +30,7 @@ class LoginViewModel @Inject constructor(
     private fun validUserName(username : String) : Boolean{
         return username.length > Constants.MIN_USERNAME_LENGTH
     }
+
 
     fun loginUser( username: String , token: String? = null){
         val trimmedUsername = username.trim()
@@ -89,6 +91,7 @@ class LoginViewModel @Inject constructor(
                 }
             }
         }
+
     }
 
     sealed class LogInEvent{
@@ -100,4 +103,5 @@ class LoginViewModel @Inject constructor(
         object Loading : LoadingEvent()
         object NotLoading : LoadingEvent()
     }
+
 }
